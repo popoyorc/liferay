@@ -43,8 +43,8 @@ RUN mkdir -p "$LIFERAY_HOME" \
 #RUN gosu nobody true
 
 COPY ./configs/setenv.sh $CATALINA_HOME/bin/setenv.sh
-COPY ./entrypoint.sh /usr/local/bin
-RUN chmod +x /usr/local/bin/entrypoint.sh
+#COPY ./entrypoint.sh /usr/local/bin
+#RUN chmod +x /usr/local/bin/entrypoint.sh
 
 EXPOSE 8080/tcp
 EXPOSE 9000/tcp
