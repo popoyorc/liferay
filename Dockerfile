@@ -32,7 +32,7 @@ RUN mkdir -p "$LIFERAY_HOME" \
       && rm -fr /tmp/liferay/liferay-ce-portal-7.1.0-ga1 \
       && chown -R liferay:liferay $LIFERAY_HOME 
 
-RUN wget -O /usr/local/bin/gosu "$GOSU_URL/gosu-$(dpkg --print-architecture)" \
+#RUN wget -O /usr/local/bin/gosu "$GOSU_URL/gosu-$(dpkg --print-architecture)" \
 	  && wget -O /usr/local/bin/gosu.asc "$GOSU_URL/gosu-$(dpkg --print-architecture).asc" \
 	  && export GNUPGHOME="$(mktemp -d)"
 
