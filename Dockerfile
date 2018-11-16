@@ -38,9 +38,9 @@ RUN wget -O /usr/local/bin/gosu "$GOSU_URL/gosu-$(dpkg --print-architecture)" \
 
 #RUN gpg --keyserver ha.pool.sks-keyservers.net --recv-keys B42F6819007F00F88E364FD4036A9C25BF357DD4
 #RUN gpg --batch --verify /usr/local/bin/gosu.asc /usr/local/bin/gosu
-RUN rm -rf "$GNUPGHOME" /usr/local/bin/gosu.asc
-RUN chmod +x /usr/local/bin/gosu
-RUN gosu nobody true
+#RUN rm -rf "$GNUPGHOME" /usr/local/bin/gosu.asc
+#RUN chmod +x /usr/local/bin/gosu
+#RUN gosu nobody true
 
 COPY ./configs/setenv.sh $CATALINA_HOME/bin/setenv.sh
 COPY ./entrypoint.sh /usr/local/bin
@@ -52,6 +52,6 @@ EXPOSE 11311/tcp
 
 VOLUME /storage
 
-
+USER liferay
 #ENTRYPOINT ["entrypoint.sh"]
 CMD ["catalina.sh", "run"]
