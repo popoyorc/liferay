@@ -152,6 +152,7 @@ run_portal() {
     set -- gosu liferay "$@"
   fi
 
+  echo "$@"
   # As argument is not related to liferay,
   # then assume that user wants to run his own process,
   # for example a `bash` shell to explore this image
