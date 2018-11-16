@@ -43,6 +43,7 @@ RUN gpg --batch --keyserver ha.pool.sks-keyservers.net --recv-keys B42F6819007F0
 RUN gpg --batch --verify gosu.asc gosu
 RUN rm -rf "$GNUPGHOME" /usr/local/bin/gosu.asc
 RUN chmod +x /usr/local/bin/gosu
+RUN gosu --version
 RUN gosu nobody true
 
 COPY ./configs/setenv.sh $CATALINA_HOME/bin/setenv.sh
