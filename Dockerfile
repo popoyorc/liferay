@@ -53,5 +53,5 @@ EXPOSE 11311/tcp
 VOLUME /storage
 
 
-ENTRYPOINT ["entrypoint.sh"]
+#ENTRYPOINT ["entrypoint.sh"]
 CMD ["catalina.sh", "run"]
