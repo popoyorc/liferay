@@ -37,6 +37,7 @@ RUN wget -O /usr/local/bin/gosu "$GOSU_URL/gosu-$(dpkg --print-architecture)" \
 	  && export GNUPGHOME="$(mktemp -d)"
 
 #RUN gpg --keyserver ha.pool.sks-keyservers.net --recv-keys B42F6819007F00F88E364FD4036A9C25BF357DD4
+
 RUN gpg --batch --keyserver ha.pool.sks-keyservers.net --recv-keys B42F6819007F00F88E364FD4036A9C25BF357DD4
 RUN gpg --batch --verify gosu.asc gosu
 RUN rm -rf "$GNUPGHOME" /usr/local/bin/gosu.asc
