@@ -32,19 +32,19 @@ RUN mkdir -p "$LIFERAY_HOME" \
       && rm -fr /tmp/liferay/liferay-ce-portal-7.1.0-ga1 \
       && chown -R liferay:liferay $LIFERAY_HOME 
 
-#RUN wget -O /usr/local/bin/gosu "$GOSU_URL/gosu-$(dpkg --print-architecture)" \
-#	  && wget -O /usr/local/bin/gosu.asc "$GOSU_URL/gosu-$(dpkg --print-architecture).asc" \
-#	  && export GNUPGHOME="$(mktemp -d)"
+RUN wget -O /usr/local/bin/gosu "$GOSU_URL/gosu-$(dpkg --print-architecture)" \
+	  && wget -O /usr/local/bin/gosu.asc "$GOSU_URL/gosu-$(dpkg --print-architecture).asc" \
+	  && export GNUPGHOME="$(mktemp -d)"
 
 #RUN gpg --keyserver ha.pool.sks-keyservers.net --recv-keys B42F6819007F00F88E364FD4036A9C25BF357DD4
 #RUN gpg --batch --verify /usr/local/bin/gosu.asc /usr/local/bin/gosu
-#RUN rm -rf "$GNUPGHOME" /usr/local/bin/gosu.asc
-#RUN chmod +x /usr/local/bin/gosu
-#RUN gosu nobody true
+RUN rm -rf "$GNUPGHOME" /usr/local/bin/gosu.asc
+RUN chmod +x /usr/local/bin/gosu
+RUN gosu nobody true
 
 COPY ./configs/setenv.sh $CATALINA_HOME/bin/setenv.sh
-#COPY ./entrypoint.sh /usr/local/bin
-#RUN chmod +x /usr/local/bin/entrypoint.sh
+COPY ./entrypoint.sh /usr/local/bin
+RUN chmod +x /usr/local/bin/entrypoint.sh
 
 EXPOSE 8080/tcp
 EXPOSE 9000/tcp
@@ -53,5 +53,5 @@ EXPOSE 11311/tcp
 VOLUME /storage
 
 USER liferay
-#ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT ["entrypoint.sh"]
 CMD ["catalina.sh", "run"]
