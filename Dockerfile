@@ -7,6 +7,8 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
   && useradd -ms /bin/bash liferay
 
+
+
 ENV LIFERAY_HOME=/liferay
 ENV LIFERAY_SHARED=/storage/liferay
 ENV LIFERAY_CONFIG_DIR=/tmp/liferay/configs
@@ -20,8 +22,6 @@ ENV GOSU_URL=https://github.com/tianon/gosu/releases/download/$GOSU_VERSION
 
 
 WORKDIR $LIFERAY_HOME
-
-#COPY liferay-ce-portal-tomcat-7.1.0-ga1-20180703012531655.zip /tmp/
 
 RUN mkdir -p "$LIFERAY_HOME" \
       && set -x \
@@ -51,6 +51,9 @@ EXPOSE 9000/tcp
 EXPOSE 11311/tcp
 
 VOLUME /storage
+
+
+USER liferay
 
 ENTRYPOINT ["entrypoint.sh"]
 CMD ["catalina.sh", "run"]
