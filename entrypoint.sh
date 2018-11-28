@@ -131,6 +131,8 @@ prepare_liferay_tomcat_config() {
   echo "
   Continuing.
   "
+
+  whoami
 }
 
 run_portal() {
