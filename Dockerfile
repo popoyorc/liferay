@@ -56,4 +56,4 @@ VOLUME /storage
 
 USER liferay
 ENTRYPOINT ["entrypoint.sh"]
-CMD ["catalina.sh", "run"]
+CMD ["catalina.sh", "run"]  
