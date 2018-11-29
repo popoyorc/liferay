@@ -141,6 +141,10 @@ run_portal() {
 
   # Drop root privileges if we are running liferay
   # allow the container to be started with `--user`
+  # As argument is not related to liferay,
+  # then assume that user wants to run his own process,
+  # for example a `bash` shell to explore this image
+
   if [ "$1" = 'catalina.sh' -a "$(id -u)" = '0' ]; then
     # Change the ownership of Liferay Shared Volume to liferay
 
@@ -153,9 +157,6 @@ run_portal() {
     
     set -- gosu liferay "$@"
   fi
-  # As argument is not related to liferay,
-  # then assume that user wants to run his own process,
-  # for example a `bash` shell to explore this image
 
 
   whoami
