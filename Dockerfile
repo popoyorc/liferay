@@ -8,8 +8,6 @@ RUN apt-get update \
   && useradd -ms /bin/bash liferay 
   
 
-
-
 ENV LIFERAY_HOME=/liferay
 ENV LIFERAY_SHARED=/storage/liferay
 ENV LIFERAY_CONFIG_DIR=/tmp/liferay/configs
@@ -25,13 +23,13 @@ ENV GOSU_URL=https://github.com/tianon/gosu/releases/download/$GOSU_VERSION
 WORKDIR $LIFERAY_HOME
 
 RUN mkdir -p "$LIFERAY_HOME" \
-      && set -x \
-      && curl "$LIFERAY_TOMCAT_URL" -o /tmp/liferay-ce-portal-tomcat-7.1.0-ga1-20180703012531655.zip \
+    && set -x \
+    && curl "$LIFERAY_TOMCAT_URL" -o /tmp/liferay-ce-portal-tomcat-7.1.0-ga1-20180703012531655.zip \
 	  && unzip /tmp/liferay-ce-portal-tomcat-7.1.0-ga1-20180703012531655.zip -d /tmp/liferay \
 	  && mv /tmp/liferay/liferay-ce-portal-7.1.0-ga1/* $LIFERAY_HOME/ \
 	  && rm /tmp/liferay-ce-portal-tomcat-7.1.0-ga1-20180703012531655.zip \
-      && rm -fr /tmp/liferay/liferay-ce-portal-7.1.0-ga1 \
-      && chown -R liferay:liferay $LIFERAY_HOME
+    && rm -fr /tmp/liferay/liferay-ce-portal-7.1.0-ga1 \
+    && chown -R liferay:liferay $LIFERAY_HOME
 
 RUN wget -O /usr/local/bin/gosu "$GOSU_URL/gosu-$(dpkg --print-architecture)" \
 	  && wget -O /usr/local/bin/gosu.asc "$GOSU_URL/gosu-$(dpkg --print-architecture).asc" \
