@@ -5,8 +5,8 @@ RUN apt-get update \
   && apt-get install -y tree \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
-  #&& useradd -ms /bin/bash liferay
-  && useradd -msG liferay
+  && useradd -ms /bin/bash liferay
+  
 
 
 
