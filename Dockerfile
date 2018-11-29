@@ -6,7 +6,7 @@ RUN apt-get update \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
   #&& useradd -ms /bin/bash liferay
-  && useradd -aG liferay
+  && useradd -msG liferay
 
 
 
