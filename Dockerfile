@@ -51,6 +51,7 @@ EXPOSE 9000/tcp
 EXPOSE 11311/tcp
 
 VOLUME /storage
+
 RUN addgroup liferay root
 USER liferay
 ENTRYPOINT ["entrypoint.sh"]
