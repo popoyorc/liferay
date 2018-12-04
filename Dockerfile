@@ -52,6 +52,6 @@ EXPOSE 11311/tcp
 
 VOLUME /storage
 
-U#SER liferay
+#USER liferay
 ENTRYPOINT ["entrypoint.sh"]
 CMD ["catalina.sh", "run"]  
