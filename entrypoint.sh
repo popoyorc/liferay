@@ -156,8 +156,6 @@ run_portal() {
   # As argument is not related to liferay,
   # then assume that user wants to run his own process,
   # for example a `bash` shell to explore this image
-  ls -lah $LIFERAY_HOME/tomcat-9.0.6/bin/catalina.sh
-  ls -lah $LIFERAY_HOME
   exec "$@"
 }
 
