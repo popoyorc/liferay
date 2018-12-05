@@ -149,8 +149,7 @@ run_portal() {
       mkdir -p $LIFERAY_SHARED
     fi
     echo "Debug mode : ON"
-    echo "$1"
-    echo "$@"
+
     echo "I am $(whoami) UID: $(id -u)"
 
     set -- gosu liferay "$@"
