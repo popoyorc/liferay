@@ -141,17 +141,9 @@ run_portal() {
 
   # Drop root privileges if we are running liferay
   # allow the container to be started with `--user`
-  #if [ "$1" = 'catalina.sh' ]; then
-
-    echo "Debug mode : ON"
-
-    echo "I am $(whoami) UID: $(id -u)"
-
-    set -- gosu liferay 
-
-    echo "I am $(whoami) UID: $(id -u)"
-
-   if [ "$1" = 'catalina.sh' ]; then
+  if [ "$1" = 'catalina.sh' ]; then
+    #if [ "$1" = 'catalina.sh' -a "$(id -u)" = '0' ]; then
+      #if [ "$1" = 'catalina.sh' -a "$(id -u)" = '100080000' ]; then #openshift user id
     # Change the ownership of Liferay Shared Volume to liferay
 
     if [[ ! -d "$LIFERAY_SHARED" ]]; then
@@ -160,22 +152,21 @@ run_portal() {
 
     chown -R liferay:liferay $LIFERAY_SHARED
     chown -R liferay:liferay $LIFERAY_HOME
+    
+    set -- gosu liferay "$@"
   fi
 
 
-
-
-  #if [[ ! -x "$@" ]]; then
-  #  echo "catalina.sh is executable..."
-  #  ls -lah $CATALINA_HOME/bin/catalina.sh
-  #fi
-
+#echo "Debug mode : ON"
+#echo "$1"
+#echo "$@"
+#echo "$(id -u)"
 
   #ls -lah $CATALINA_HOME/bin/catalina.sh
   # As argument is not related to liferay,
   # then assume that user wants to run his own process,
   # for example a `bash` shell to explore this image
-  exec "$@"
+#  exec "$@"
 }
 
 main "$@"
