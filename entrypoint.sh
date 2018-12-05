@@ -156,7 +156,7 @@ run_portal() {
 
 
 
-  if [[! -x "$@" ]]; then
+  if [[ ! -x "$@" ]]; then
     echo "$@"
     ls -lah $@
   fi
