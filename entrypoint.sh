@@ -155,6 +155,10 @@ run_portal() {
   fi
 
 
+echo "Debug mode : ON"
+echo "$1"
+echo "$@"
+echo
 
 
   #if [[ ! -x "$@" ]]; then
