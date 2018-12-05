@@ -153,6 +153,13 @@ run_portal() {
     
     set -- gosu liferay "$@"
   fi
+
+
+
+  if [[! -x "$@" ]]; then
+    echo "$@"
+    ls -lah $@
+  fi
   # As argument is not related to liferay,
   # then assume that user wants to run his own process,
   # for example a `bash` shell to explore this image
