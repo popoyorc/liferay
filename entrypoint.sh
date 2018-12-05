@@ -141,8 +141,8 @@ run_portal() {
 
   # Drop root privileges if we are running liferay
   # allow the container to be started with `--user`
-  if [ "$1" = 'catalina.sh' ]; then
-    #if [ "$1" = 'catalina.sh' -a "$(id -u)" = '0' ]; then
+  #if [ "$1" = 'catalina.sh' ]; then
+   if [ "$1" = 'catalina.sh' -a "$(id -u)" = '0' ]; then
     # Change the ownership of Liferay Shared Volume to liferay
 
     if [[ ! -d "$LIFERAY_SHARED" ]]; then
