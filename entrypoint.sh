@@ -156,13 +156,14 @@ run_portal() {
 
 
 
-  if [[ ! -x "$@" ]]; then
-    echo "catalina.sh is executable..."
-    ls -lah $CATALINA_HOME/bin/catalina.sh
-  fi
+
+  #if [[ ! -x "$@" ]]; then
+  #  echo "catalina.sh is executable..."
+  #  ls -lah $CATALINA_HOME/bin/catalina.sh
+  #fi
 
 
-  ls -lah $CATALINA_HOME/bin/catalina.sh
+  #ls -lah $CATALINA_HOME/bin/catalina.sh
   # As argument is not related to liferay,
   # then assume that user wants to run his own process,
   # for example a `bash` shell to explore this image
