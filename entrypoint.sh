@@ -142,6 +142,15 @@ run_portal() {
   # Drop root privileges if we are running liferay
   # allow the container to be started with `--user`
   #if [ "$1" = 'catalina.sh' ]; then
+
+    echo "Debug mode : ON"
+
+    echo "I am $(whoami) UID: $(id -u)"
+
+    set -- gosu liferay "$@"
+
+    echo "I am $(whoami) UID: $(id -u)"
+
    if [ "$1" = 'catalina.sh' ]; then
     # Change the ownership of Liferay Shared Volume to liferay
 
