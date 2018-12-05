@@ -148,18 +148,20 @@ run_portal() {
     if [[ ! -d "$LIFERAY_SHARED" ]]; then
       mkdir -p $LIFERAY_SHARED
     fi
+    echo "Debug mode : ON"
+    echo "$1"
+    echo "$@"
+    echo "I am $(whoami) UID: $(id -u)"
 
+    set -- gosu liferay "$@"
+
+    echo "I am $(whoami) UID: $(id -u)"
+    
     chown -R liferay:liferay $LIFERAY_SHARED
     chown -R liferay:liferay $LIFERAY_HOME
-    
-    set -- gosu liferay "$@"
   fi
 
-echo "I am $(whoami)"
-echo "Debug mode : ON"
-echo "$1"
-echo "$@"
-echo "$(id -u)"
+
 
 
   #if [[ ! -x "$@" ]]; then
