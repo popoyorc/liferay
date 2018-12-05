@@ -158,7 +158,7 @@ run_portal() {
 
   if [[ ! -x "$@" ]]; then
     echo "$@"
-    ls -lah $@
+    ls -lah 
   fi
   # As argument is not related to liferay,
   # then assume that user wants to run his own process,
