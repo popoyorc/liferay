@@ -1,12 +1,11 @@
 FROM openjdk:8u181
 
-RUN set -x \ 
-  && apt-get update \
+RUN apt-get update \
   && apt-get install -y curl tree \
   && apt-get install -y tree \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
-  && useradd -u 100080000 -ms /bin/bash liferay 
+  && useradd -ms /bin/bash liferay 
   
 
 ENV LIFERAY_HOME=/liferay
