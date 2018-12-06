@@ -55,5 +55,5 @@ VOLUME /storage
 
 RUN addgroup liferay root
 USER liferay
-ENTRYPOINT ["entrypoint.sh"]
+#ENTRYPOINT ["entrypoint.sh"]
 CMD ["catalina.sh", "run"]  
