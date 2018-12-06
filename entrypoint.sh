@@ -156,7 +156,7 @@ run_portal() {
     set -- gosu liferay "$@"
   fi
 
-  set -- gosu 100080000 "$@"
+  whoami
 
 #echo "Debug mode : ON"
 #echo "$1"
