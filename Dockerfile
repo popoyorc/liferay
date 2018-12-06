@@ -1,8 +1,9 @@
 FROM openjdk:8u181
 
-RUN set -x
+RUN
 
-RUN apt-get update \
+RUN set -x \ 
+  && apt-get update \
   && apt-get install -y curl tree \
   && apt-get install -y tree \
   && apt-get clean \
