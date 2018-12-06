@@ -9,14 +9,14 @@ RUN apt-get update \
   
 
 ENV LIFERAY_HOME=/liferay
-ENV LIFERAY_SHARED=/storage/liferay
-ENV LIFERAY_CONFIG_DIR=/tmp/liferay/configs
-ENV LIFERAY_DEPLOY_DIR=/tmp/liferay/deploy
+#ENV LIFERAY_SHARED=/storage/liferay
+#ENV LIFERAY_CONFIG_DIR=/tmp/liferay/configs
+#ENV LIFERAY_DEPLOY_DIR=/tmp/liferay/deploy
 ENV LIFERAY_TOMCAT_URL=https://nchc.dl.sourceforge.net/project/lportal/Liferay%20Portal/7.1.0%20GA1/liferay-ce-portal-tomcat-7.1.0-ga1-20180703012531655.zip
 ENV CATALINA_HOME=$LIFERAY_HOME/tomcat-9.0.6
-ENV PATH=$CATALINA_HOME/bin:$PATH
-ENV GOSU_VERSION 1.11
-ENV GOSU_URL=https://github.com/tianon/gosu/releases/download/$GOSU_VERSION
+#ENV PATH=$CATALINA_HOME/bin:$PATH
+#ENV GOSU_VERSION 1.11
+#ENV GOSU_URL=https://github.com/tianon/gosu/releases/download/$GOSU_VERSION
 
 
 
@@ -42,7 +42,7 @@ RUN mkdir -p "$LIFERAY_HOME" \
 #RUN gosu --version
 #RUN gosu nobody true
 
-COPY ./configs/setenv.sh $CATALINA_HOME/bin/setenv.sh
+#COPY ./configs/setenv.sh $CATALINA_HOME/bin/setenv.sh
 COPY ./entrypoint.sh /usr/local/bin
 #RUN chown liferay:liferay /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
