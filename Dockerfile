@@ -53,6 +53,6 @@ EXPOSE 11311/tcp
 VOLUME /storage
 
 RUN addgroup liferay root
-#USER liferay
-#ENTRYPOINT ["entrypoint.sh"]
+USER liferay
+ENTRYPOINT ["entrypoint.sh"]
 CMD ["catalina.sh", "run"]  
