@@ -42,7 +42,7 @@ RUN mkdir -p "$LIFERAY_HOME" \
 #RUN gosu --version
 #RUN gosu nobody true
 
-#COPY ./configs/setenv.sh $CATALINA_HOME/bin/setenv.sh
+COPY ./configs/setenv.sh $CATALINA_HOME/bin/setenv.sh
 #COPY ./entrypoint.sh /usr/local/bin
 #RUN chown liferay:liferay /usr/local/bin/entrypoint.sh
 #RUN chmod +x /usr/local/bin/entrypoint.sh
