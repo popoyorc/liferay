@@ -43,8 +43,8 @@ RUN mkdir -p "$LIFERAY_HOME" \
 #RUN gosu nobody true
 
 COPY ./configs/setenv.sh $CATALINA_HOME/bin/setenv.sh
-#COPY ./entrypoint.sh /usr/local/bin
-#RUN chmod +x /usr/local/bin/entrypoint.sh
+COPY ./entrypoint.sh /usr/local/bin
+RUN chmod +x /usr/local/bin/entrypoint.sh
 
 EXPOSE 8080/tcp 
 EXPOSE 9000/tc
@@ -52,7 +52,7 @@ pEXPOSE 11311/tcp
 
 VOLUME /storage
 
-#RUN addgroup liferay root
-#USER liferay
-#ENTRYPOINT ["entrypoint.sh"]
+RUN addgroup liferay root
+USER liferay
+ENTRYPOINT ["entrypoint.sh"]
 CMD ["catalina.sh", "run"]  
