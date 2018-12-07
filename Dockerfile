@@ -4,8 +4,8 @@ RUN apt-get update \
   && apt-get install -y curl tree \
   && apt-get install -y tree \
   && apt-get clean \
-  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
-RUN useradd -ms /bin/bash liferay 
+  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+  && useradd -ms /bin/bash liferay 
   
 
 ENV LIFERAY_HOME=/liferay
