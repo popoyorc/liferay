@@ -47,8 +47,8 @@ COPY ./configs/setenv.sh $CATALINA_HOME/bin/setenv.sh
 #RUN chmod +x /usr/local/bin/entrypoint.sh
 
 EXPOSE 8080/tcp 
-EXPOSE 9000/tcp
-EXPOSE 11311/tcp
+EXPOSE 9000/tc
+pEXPOSE 11311/tcp
 
 VOLUME /storage
 
