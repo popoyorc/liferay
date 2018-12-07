@@ -4,8 +4,8 @@ RUN apt-get update \
   && apt-get install -y curl tree \
   && apt-get install -y tree \
   && apt-get clean \
-  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
-  #\ && useradd -ms /bin/bash liferay 
+  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+ && useradd -ms /bin/bash liferay 
   
 
 ENV LIFERAY_HOME=/liferay
@@ -28,8 +28,8 @@ RUN mkdir -p "$LIFERAY_HOME" \
 	  && unzip /tmp/liferay-ce-portal-tomcat-7.1.0-ga1-20180703012531655.zip -d /tmp/liferay \
 	  && mv /tmp/liferay/liferay-ce-portal-7.1.0-ga1/* $LIFERAY_HOME/ \
 	  && rm /tmp/liferay-ce-portal-tomcat-7.1.0-ga1-20180703012531655.zip \
-    && rm -fr /tmp/liferay/liferay-ce-portal-7.1.0-ga1 
-    #\ && chown -R liferay:liferay $LIFERAY_HOME
+    && rm -fr /tmp/liferay/liferay-ce-portal-7.1.0-ga1 \ 
+    && chown -R liferay:liferay $LIFERAY_HOME
 
 
 #RUN wget -O /usr/local/bin/gosu "$GOSU_URL/gosu-$(dpkg --print-architecture)" \
